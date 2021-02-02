@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_01_123036) do
+ActiveRecord::Schema.define(version: 2021_02_02_112003) do
+
+  create_table "appointments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "physician_id", null: false
+    t.string "city"
+    t.date "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["physician_id"], name: "index_appointments_on_physician_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
+  end
 
   create_table "physicians", force: :cascade do |t|
     t.string "category"
@@ -42,4 +53,6 @@ ActiveRecord::Schema.define(version: 2021_02_01_123036) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "appointments", "physicians"
+  add_foreign_key "appointments", "users"
 end
