@@ -19,9 +19,9 @@ gem 'active_model_serializers'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'rubocop', '~>0.81.0'
 gem 'devise'
 gem 'devise_token_auth'
+gem 'rubocop', '~>0.81.0'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
